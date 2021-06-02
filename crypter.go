@@ -12,7 +12,7 @@ type Crypter struct {
 	gcm cipher.AEAD
 }
 
-func (cp Crypter) Crypt(data []byte) ([]byte, error) {
+func (cp Crypter) Encrypt(data []byte) ([]byte, error) {
 	nonce := make([]byte, cp.gcm.NonceSize())
 	_, err := io.ReadFull(rand.Reader, nonce)
 	if err != nil {
